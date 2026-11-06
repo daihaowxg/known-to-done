@@ -69,6 +69,7 @@ AI 提供解释、证据、候选路径和反馈，让判断依据可以被理�
 | Skill | 解决的问题 | 完成标志 |
 | --- | --- | --- |
 | [ktd-locate](skills/ktd-locate/SKILL.md) · 知识定位 | 我关心的问题与哪些概念、领域有关？ | 看清具体问题到相关领域的联系，并有依据地选择下一步探索方向。 |
+| [ktd-reconstruct](skills/ktd-reconstruct/SKILL.md) · 理论还原 | 为什么需要这个理论，它如何起作用？ | 看清问题、约束与核心概念之间的推导关系，并能据此分析适用条件。 |
 
 ## 目录与使用
 
@@ -76,7 +77,9 @@ AI 提供解释、证据、候选路径和反馈，让判断依据可以被理�
 known-to-done/
 ├── README.md
 └── skills/
-    └── ktd-locate/
+    ├── ktd-locate/
+    │   └── SKILL.md
+    └── ktd-reconstruct/
         └── SKILL.md
 ```
 
@@ -87,10 +90,12 @@ Skills 统一使用 `ktd-` 前缀，每个 Skill 的必要执行要求保存在�
 ```bash
 mkdir -p ~/.agents/skills
 ln -s "$PWD/skills/ktd-locate" ~/.agents/skills/ktd-locate
+ln -s "$PWD/skills/ktd-reconstruct" ~/.agents/skills/ktd-reconstruct
 ```
 
 调用示例：
 
 ```text
 $ktd-locate 为什么我读代码能看懂每个方法，却很难理解整个系统的设计？
+$ktd-reconstruct 我知道缓存能加速读取，但为什么会引出缓存一致性问题？带我从简单做法开始推导。
 ```
